@@ -1,4 +1,4 @@
-# finalproject_moviegames
+Final Project Movie Games
 
 A new Flutter project.
 
