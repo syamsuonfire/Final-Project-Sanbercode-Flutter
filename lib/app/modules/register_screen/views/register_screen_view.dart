@@ -50,19 +50,6 @@ class RegisterScreenView extends GetView<RegisterScreenController> {
             Container(
               padding: EdgeInsets.all(10),
               child: TextField(
-                controller: controller.usernameC,
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: "Username ",
-                    prefixIcon: Icon(
-                      Icons.email,
-                      size: 18,
-                    )),
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(10),
-              child: TextField(
                 controller: controller.emailC,
                 decoration: InputDecoration(
                     border: OutlineInputBorder(),

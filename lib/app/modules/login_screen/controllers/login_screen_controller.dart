@@ -22,7 +22,7 @@ class LoginScreenController extends GetxController {
       isLoading.value = true;
       try {
         var data = {"email": emailC.text, "password": passwordC.text};
-        var response = await DioHttp.request.post("api/login", data: data);
+        var response = await DioHttp.request.post("api/user-login", data: data);
 
         final SharedPreferences prefs = await SharedPreferences.getInstance();
         prefs.setString('user-token', response.data["token"]);
@@ -34,7 +34,7 @@ class LoginScreenController extends GetxController {
         switch (dioError.response!.statusCode) {
           case 400:
             Get.snackbar("Terjadi Kesalahan",
-                dioError.response!.data["message"].toString());
+                dioError.response!.data["error"].toString());
             break;
           case 404:
             Get.snackbar("Terjadi Kesalahan", "User Not Found");

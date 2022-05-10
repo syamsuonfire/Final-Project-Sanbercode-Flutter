@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 class RegisterScreenController extends GetxController {
   RxBool isLoading = false.obs;
   TextEditingController nameC = TextEditingController();
-  TextEditingController usernameC = TextEditingController();
   TextEditingController emailC = TextEditingController();
   TextEditingController passwordC = TextEditingController();
   RxBool passwordVisible = true.obs;
@@ -21,14 +20,12 @@ class RegisterScreenController extends GetxController {
 
   Future<void> register() async {
     if (nameC.text.isNotEmpty &&
-        usernameC.text.isNotEmpty &&
         emailC.text.isNotEmpty &&
         passwordC.text.isNotEmpty) {
       isLoading.value = true;
       try {
         var data = {
           "name": nameC.text,
-          "username": usernameC.text,
           "email": emailC.text,
           "password": passwordC.text
         };
@@ -56,8 +53,8 @@ class RegisterScreenController extends GetxController {
         isLoading.value = false;
       }
     } else {
-      Get.snackbar("Terjadi Kesalahan",
-          "Nama, username, email dan password wajib diisi.");
+      Get.snackbar(
+          "Terjadi Kesalahan", "Nama, email dan password wajib diisi.");
     }
   }
 }

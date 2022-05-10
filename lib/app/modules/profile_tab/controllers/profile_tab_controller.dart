@@ -29,8 +29,8 @@ class ProfileTabController extends GetxController {
 
   Future<dynamic> logout() async {
     try {
-      var response = await DioHttp.request.post("/api/logout",
-          options: Options(headers: {"authorization": "Bearer $userToken"}));
+      // var response = await DioHttp.request.post("/api/logout",
+      //     options: Options(headers: {"authorization": "Bearer $userToken"}));
 
       SharedPreferences preferences = await SharedPreferences.getInstance();
       await preferences.clear();
